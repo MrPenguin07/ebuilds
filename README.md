@@ -1,7 +1,16 @@
   <a href="https://github.com/MrPenguin07/ebuilds/">
     <img src="https://github.com/MrPenguin07/ebuilds/blob/master/site-logo.png" height="50px"/>
   </a>
-  
+
+<details>
+<summary><h3>List of ebuilds in this overlay</h3></summary>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-wm/swayfx">gui-wm/swayfx-9999</a>   
+<br>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-gfx/upscayl-bin">media-gfx/upscayl-bin</a>
+<br>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/sys-power/system76-power">sys-power/system76-power-9999</a>
+</details>
+
 ## MrPenguin's ebuild overlay
 
 ### Adding this repo as a Gentoo Overlay
