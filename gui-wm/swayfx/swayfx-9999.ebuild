@@ -3,12 +3,11 @@
 
 EAPI=8
 
-inherit meson optfeature
+inherit meson git-r3 optfeature
 
-DESCRIPTION="i3-compatible Wayland window manager"
-HOMEPAGE="https://swaywm.org"
+DESCRIPTION="SwayFX: Sway, but with eye candy! "
+HOMEPAGE="https://github.com/WillPower3309/swayfx"
 
-inherit git-r3
 EGIT_REPO_URI="https://github.com/WillPower3309/${PN^}.git"
 KEYWORDS="~amd64"
 
