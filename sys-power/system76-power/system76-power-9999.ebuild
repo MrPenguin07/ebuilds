@@ -19,6 +19,7 @@ KEYWORDS="~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}
+	sys-apps/openrc
 	sys-apps/dbus
 	dev-lang/rust
 	dev-libs/libusb
