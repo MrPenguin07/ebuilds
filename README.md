@@ -8,7 +8,7 @@
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-gfx/upscayl-bin">media-gfx/upscayl-bin</a>
 <br>
-- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/sys-power/system76-power">sys-power/system76-power-9999</a>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/sys-power/system76-power-openrc">sys-power/system76-power-openrc-9999</a>
 </details>
 
 ## MrPenguin's ebuild overlay
