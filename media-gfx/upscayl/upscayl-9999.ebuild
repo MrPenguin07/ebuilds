@@ -29,7 +29,7 @@ DEPEND="
 "
 
 RDEPEND="
-    !<media-gfx/upscayl-bin-${PV}
+    !media-gfx/upscayl-bin
     net-libs/nodejs
     dev-libs/nss
     media-libs/openjpeg
