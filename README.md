@@ -4,7 +4,9 @@
 
 <details>
 <summary><h3>List of ebuilds in this overlay</h3></summary>
-- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-wm/swayfx">gui-wm/swayfx-9999</a>   
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-apps/swaync">gui-apps/swaync-9999</a>
+<br>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-wm/swayfx">gui-wm/swayfx-9999</a>
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-gfx/upscayl-bin">media-gfx/upscayl-bin</a>
 <br>
