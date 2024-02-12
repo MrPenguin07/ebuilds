@@ -83,8 +83,8 @@ pkg_postinst() {
         einfo "NOTICE: 'Custom Model Path' needs to be set."
         einfo "Settings -> Add custom models"
         einfo "Set to '/opt/Upscayl/resources/models'"
-        ewarn "**********************"
-        einfo "A CLI binary named 'upscayl-cli' is available"
-        einfo "See 'upscayl-cli -h' for usage."
     fi
+    ewarn "**********************"
+    einfo "A CLI binary named 'upscayl-cli' is available"
+    einfo "See 'upscayl-cli -h' for usage."
 }

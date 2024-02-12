@@ -68,4 +68,7 @@ pkg_postinst() {
         einfo "Settings -> Add custom models"
         einfo "Set to '/opt/Upscayl/resources/models'"
     fi
+    ewarn "**********************"
+    einfo "A CLI binary named 'upscayl-cli' is available"
+    einfo "See 'upscayl-cli -h' for usage."
 }
