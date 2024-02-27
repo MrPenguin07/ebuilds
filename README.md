@@ -2,8 +2,8 @@
     <img src="https://github.com/MrPenguin07/ebuilds/blob/master/site-logo.png" height="50px"/>
   </a>
 
+### List of ebuilds in this overlay
 <details>
-<summary><h3>List of ebuilds in this overlay</h3></summary>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama">dev-ml/ollama-9999</a>
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-apps/swaync">gui-apps/swaync-9999</a>
