@@ -49,4 +49,10 @@ src_compile() {
 
 src_install() {
     dobin ollama
+    insinto /etc/init.d
+    doins "${FILESDIR}"/ollama
+}
+
+pkg_postinst() {
+    chmod 0755 /etc/init.d/ollama || die
 }
