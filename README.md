@@ -55,3 +55,9 @@
     ```bash
     emaint sync -r mrpenguin
     ```
+---
+
+#### Keyword the -9999 ebuilds:
+
+Live 9999 ebuilds must be **keyworded** for portage to accept them,  
+See the [Gentoo Live Ebuild Wiki](https://wiki.gentoo.org/wiki/Live_ebuilds) for information on managing keyworded ebuilds.
