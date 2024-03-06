@@ -39,21 +39,21 @@ S="${WORKDIR}"
 
 src_unpack() {
     unpack ${A}
-    ar x "${DISTDIR}/upscayl-${PV}-linux.deb"
-    tar -xJpf data.tar.xz -C "${S}"
+    ar x "${DISTDIR}/upscayl-${PV}-linux.deb" || die "Failed to extract .deb file"
+    tar -xJpf data.tar.xz -C "${S}" || die "Failed to extract tar file"
     if use custom-models; then
-        unzip -nj -d "${S}"/opt/Upscayl/resources/models "${DISTDIR}"/custom-models.zip
+        unzip -nj -d "${S}"/opt/Upscayl/resources/models "${DISTDIR}"/custom-models.zip || die "Failed to extract models zip file"
     fi
 }
 
 src_install() {
     insinto /opt
-    cp -r "${S}"/opt/* "${D}/opt/"
+    cp -r "${S}"/opt/* "${D}/opt/" || die "Failed to install to /opt"
 
     insinto /usr/share/doc/upscayl-bin-${PV}
-    gunzip "${S}/usr/share/doc/upscayl/changelog.gz"
+    gunzip "${S}/usr/share/doc/upscayl/changelog.gz" || die "Failed to gunzip changelog"
     doins "${S}/usr/share/doc/upscayl/changelog"
-    rm -r "${S}/usr/share/doc/upscayl"
+    rm -r "${S}/usr/share/doc/upscayl" || die "Failed to remove temp dir"
 
     insinto /usr
     doins -r "${S}"/usr/*
