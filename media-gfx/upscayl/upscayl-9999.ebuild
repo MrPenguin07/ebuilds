@@ -48,7 +48,7 @@ src_unpack() {
 
 src_compile() {
     npm install || die "npm dependency installation failed"
-    npx next telemetry disable && npm run dist:deb --ignore-scripts || die "npm build failed"
+    npx next telemetry disable && npm run dist:deb
 }
 
 src_install() {
