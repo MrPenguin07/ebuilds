@@ -47,8 +47,8 @@ src_unpack() {
 }
 
 src_compile() {
-    npm install || die "npm install failed"
-    npx next telemetry disable && npm run dist:deb --ignore-scripts
+    npm install || die "npm dependency installation failed"
+    npx next telemetry disable && npm run dist:deb --ignore-scripts || die "npm build failed"
 }
 
 src_install() {
@@ -57,19 +57,19 @@ src_install() {
     [[ -n ${deb_file} ]] || die "Failed to find .deb file"
 
     ar x "${deb_file}" || die "Failed to extract .deb file"
-    tar -xJpf data.tar.xz -C "${S}"
+    tar -xJpf data.tar.xz -C "${S}" || die "Failed to extract tar file"
 
     if use custom-models; then
-        unzip -nj -d "${S}"/opt/Upscayl/resources/models "${DISTDIR}"/custom-models.zip
+        unzip -nj -d "${S}"/opt/Upscayl/resources/models "${DISTDIR}"/custom-models.zip || die "Failed to extract models zip file"
     fi
 
     insinto /opt
-    cp -r "${S}"/opt/* "${D}/opt/"
+    cp -r "${S}"/opt/* "${D}/opt/" || die "Failed to install to /opt"
 
     insinto /usr/share/doc/upscayl-${PV}
-    gunzip "${S}/usr/share/doc/upscayl/changelog.gz"
+    gunzip "${S}/usr/share/doc/upscayl/changelog.gz" || die "Failed to gunzip changelog"
     doins "${S}/usr/share/doc/upscayl/changelog"
-    rm -r "${S}/usr/share/doc/upscayl"
+    rm -r "${S}/usr/share/doc/upscayl" || die "Failed to remove temp dir"
 
     insinto /usr
     doins -r "${S}"/usr/*
