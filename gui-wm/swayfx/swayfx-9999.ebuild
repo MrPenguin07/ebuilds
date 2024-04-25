@@ -21,6 +21,7 @@ DEPEND="
 	sys-auth/seatd:=
 	dev-libs/libpcre
 	>=dev-libs/wayland-1.20.0
+	media-plugins/scenefx
 	x11-libs/cairo
 	x11-libs/libxkbcommon
 	x11-libs/pango
@@ -36,7 +37,7 @@ DEPEND="
 	X? ( x11-libs/libxcb:0= )
 "
 DEPEND+="
-	>=gui-libs/wlroots-0.16:=[X?]
+	>=gui-libs/wlroots-0.17:=[X?]
 "
 RDEPEND="
 	x11-misc/xkeyboard-config
