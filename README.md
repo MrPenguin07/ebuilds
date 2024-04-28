@@ -10,6 +10,8 @@
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-wm/swayfx">gui-wm/swayfx-9999</a>
 <br>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-plugins/scenefx">media-plugins/scenefx-9999</a>
+<br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-gfx/upscayl-bin">media-gfx/upscayl-bin</a>
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/media-gfx/upscayl">media-gfx/upscayl-9999</a>
