@@ -23,6 +23,13 @@
 
 ### Adding this repo as a Gentoo Overlay
 
+#### Using [`eselect repository`](https://wiki.gentoo.org/wiki/Eselect/Repository#Add_repositories)
+1. `emerge -avtq eselect-repository`
+2. `eselect repository add mrpenguin git https://github.com/MrPenguin07/ebuilds.git`
+3. `emaint sync -r mrpenguin`
+
+#### Manually
+
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/MrPenguin07/ebuilds.git /usr/local/portage/mrpenguin
@@ -63,3 +70,5 @@
 
 Live 9999 ebuilds must be **keyworded** for portage to accept them,  
 See the [Gentoo Live Ebuild Wiki](https://wiki.gentoo.org/wiki/Live_ebuilds) for information on managing keyworded ebuilds.
+
+You can accept specific live ebuilds semi-automatically using emerge's option `--autounmask` in conjuction with `dispatch-conf` `u` .
