@@ -4,6 +4,8 @@
 
 ### List of ebuilds in this overlay
 <details>
+- <a href="https://github.com/MrPenguin07/ebuilds/tree/master/app-admin/sudo-rs">app-admin/sudo-rs-9999</a>
+<br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/dev-ml/ollama">dev-ml/ollama-9999</a>
 <br>
 - <a href="https://github.com/MrPenguin07/ebuilds/tree/master/gui-apps/swaync">gui-apps/swaync-9999</a>
