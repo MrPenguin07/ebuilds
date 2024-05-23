@@ -21,7 +21,7 @@ DEPEND="
 	sys-auth/seatd:=
 	dev-libs/libpcre
 	>=dev-libs/wayland-1.20.0
-	media-plugins/scenefx
+	gui-libs/scenefx
 	x11-libs/cairo
 	x11-libs/libxkbcommon
 	x11-libs/pango
