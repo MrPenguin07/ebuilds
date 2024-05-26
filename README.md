@@ -26,8 +26,8 @@
 ### Adding this repo as a Gentoo Overlay
 
 #### Using [`eselect repository`](https://wiki.gentoo.org/wiki/Eselect/Repository#Add_repositories)
-1. `emerge -avtq eselect-repository`
-2. `eselect repository add mrpenguin git https://github.com/MrPenguin07/ebuilds.git`
+1. `emerge -av eselect-repository` (if required)
+2. `eselect repository enable mrpenguin`
 3. `emaint sync -r mrpenguin`
 
 #### Manually
@@ -57,15 +57,11 @@
     ```
 
 5. Emerge Packages:
-    You can now install packages from the overlay using emerge as usual.
+    
+    `eix --in-overlay mrpenguin`  
+    Will list available packages from this overlay.
+    You can now install packages using emerge as usual.
 
-6. Update the Overlay:
-   
-    `auto-sync = yes` should keep the overlay in sync, or can be done manually;
-
-    ```bash
-    emaint sync -r mrpenguin
-    ```
 ---
 
 #### Keyword the -9999 ebuilds:
@@ -73,4 +69,4 @@
 Live 9999 ebuilds must be **keyworded** for portage to accept them,  
 See the [Gentoo Live Ebuild Wiki](https://wiki.gentoo.org/wiki/Live_ebuilds) for information on managing keyworded ebuilds.
 
-You can accept specific live ebuilds semi-automatically using emerge's option `--autounmask` in conjuction with `dispatch-conf` `u` .
+You can accept specific live ebuilds semi-automatically using emerge's option `--autounmask` in conjuction with `dispatch-conf u` or `etc-update`.
