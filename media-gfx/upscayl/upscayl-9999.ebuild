@@ -75,6 +75,7 @@ src_install() {
     doins -r "${S}"/usr/*
     exeinto /usr/bin
     newexe "${S}/opt/Upscayl/resources/bin/upscayl-bin" upscayl-cli
+    dosym /opt/Upscayl/resources/models /usr/bin/models
 }
 
 pkg_postinst() {
