@@ -6,8 +6,8 @@ DESCRIPTION="Free and Open Source AI Image Upscaler for Linux, MacOS, and Window
 HOMEPAGE="https://github.com/upscayl/upscayl"
 EGIT_REPO_URI="https://github.com/upscayl/upscayl.git"
 SRC_URI="custom-models? ( mirror+https://github.com/upscayl/custom-models/archive/refs/heads/main.zip -> custom-models.zip )"
+LICENSE="AGPL-3"
 RESTRICT="mirror network-sandbox"
-LICENSE="AGPL-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 QA_PRESTRIPPED="opt/Upscayl/.*"
@@ -36,8 +36,6 @@ RDEPEND="
     media-libs/vips
     x11-libs/gtk+
 "
-
-#S="${WORKDIR}"
 
 src_unpack() {
     if [[ ${PV} == 9999 ]] ; then
@@ -75,7 +73,7 @@ src_install() {
     doins -r "${S}"/usr/*
     exeinto /usr/bin
     newexe "${S}/opt/Upscayl/resources/bin/upscayl-bin" upscayl-cli
-    dosym /opt/Upscayl/resources/models /usr/bin/models
+    dosym "${D}/opt/Upscayl/resources/models" /usr/bin/models
 }
 
 pkg_postinst() {
