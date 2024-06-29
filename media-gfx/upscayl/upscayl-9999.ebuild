@@ -9,7 +9,6 @@ SRC_URI="custom-models? ( mirror+https://github.com/upscayl/custom-models/archiv
 LICENSE="AGPL-3"
 RESTRICT="mirror network-sandbox"
 SLOT="0"
-KEYWORDS="~amd64"
 QA_PRESTRIPPED="opt/Upscayl/.*"
 
 IUSE="custom-models"

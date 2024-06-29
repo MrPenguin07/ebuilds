@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/ArtsyMacaw/wlogout.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="layershell doc bash-completions fish-completions zsh-completions"
 
 DEPEND="x11-libs/gtk+[wayland(-)]
