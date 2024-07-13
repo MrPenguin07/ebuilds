@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson git-r3 optfeature
+inherit meson fcaps git-r3 optfeature
 
 DESCRIPTION="SwayFX: Sway, but with eye candy! "
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
@@ -13,20 +13,22 @@ KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="grimshot +man +swaybar +swaynag tray wallpapers X"
+IUSE="+man +swaybar +swaynag tray wallpapers X"
+REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
 	>=dev-libs/json-c-0.13:0=
-	>=dev-libs/libinput-1.6.0:0=
+	>=dev-libs/libinput-1.21.0:0=
+	virtual/libudev
 	sys-auth/seatd:=
-	dev-libs/libpcre
-	>=dev-libs/wayland-1.20.0
+	dev-libs/libpcre2
+	>=dev-libs/wayland-1.21.0
 	gui-libs/scenefx
 	x11-libs/cairo
-	x11-libs/libxkbcommon
+	>=x11-libs/libxkbcommon-1.5.0
+	media-libs/libglvnd
 	x11-libs/pango
 	x11-libs/pixman
-	media-libs/mesa[gles2,libglvnd(+)]
 	swaybar? ( x11-libs/gdk-pixbuf:2 )
 	tray? ( || (
 		sys-apps/systemd
@@ -34,20 +36,18 @@ DEPEND="
 		sys-libs/basu
 	) )
 	wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] )
-	X? ( x11-libs/libxcb:0= )
+	X? ( x11-libs/libxcb:0=
+		x11-libs/xcb-util-wm
+	)
 "
 DEPEND+="
 	>=gui-libs/wlroots-0.17:=[X?]
+	<gui-libs/wlroots-0.18:=[X?]
 "
 RDEPEND="
 	x11-misc/xkeyboard-config
-	grimshot? (
-		app-misc/jq
-		gui-apps/grim
-		gui-apps/slurp
-		gui-apps/wl-clipboard
-		x11-libs/libnotify
-	)
+	dev-libs/libevdev
+	dev-libs/glib
 	!!gui-wm/sway
 	${DEPEND}
 "
@@ -56,8 +56,12 @@ BDEPEND="
 	>=dev-build/meson-0.60.0
 	virtual/pkgconfig
 "
-BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"
-REQUIRED_USE="tray? ( swaybar )"
+BDEPEND+="man? ( >=app-text/scdoc-1.9.2 )"
+
+FILECAPS=(
+	cap_sys_nice usr/bin/sway # reflect ">=gui-wm/sway-1.9"
+)
+
 
 src_configure() {
 	local emesonargs=(
@@ -78,14 +82,13 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-
-	if use grimshot; then
-		doman contrib/grimshot.1
-		dobin contrib/grimshot
-	fi
+	insinto /usr/share/xdg-desktop-portal
+	doins "${FILESDIR}/sway-portals.conf"
 }
 
 pkg_postinst() {
+	fcaps_pkg_postinst
+
 	optfeature_header "There are several packages that may be useful with swayfx:"
 	optfeature "wallpaper utility" gui-apps/swaybg
 	optfeature "idle management utility" gui-apps/swayidle
