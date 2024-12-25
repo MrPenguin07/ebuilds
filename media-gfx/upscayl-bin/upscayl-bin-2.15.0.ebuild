@@ -1,7 +1,7 @@
 EAPI=8
 DESCRIPTION="Free and Open Source AI Image Upscaler for Linux, MacOS, and Windows"
 HOMEPAGE="https://github.com/upscayl/upscayl"
-SRC_URI="https://github.com/upscayl/upscayl/releases/download/v${PV}-pre-release/upscayl-${PV}-pre-release-linux.deb
+SRC_URI="https://github.com/upscayl/upscayl/releases/download/v${PV}/upscayl-${PV}-linux.deb
     custom-models? ( mirror+https://github.com/upscayl/custom-models/archive/refs/heads/main.zip -> custom-models.zip )"
 LICENSE="AGPL-3"
 RESTRICT="mirror"
@@ -39,7 +39,7 @@ S="${WORKDIR}"
 
 src_unpack() {
     unpack ${A}
-    ar x "${DISTDIR}/upscayl-${PV}-pre-release-linux.deb" || die "Failed to extract .deb file"
+    ar x "${DISTDIR}/upscayl-${PV}-linux.deb" || die "Failed to extract .deb file"
     tar -xJpf data.tar.xz -C "${S}" || die "Failed to extract tar file"
     if use custom-models; then
         unzip -nj -d "${S}"/opt/Upscayl/resources/models "${DISTDIR}"/custom-models.zip || die "Failed to extract models zip file"
