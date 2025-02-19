@@ -9,11 +9,10 @@ DESCRIPTION="SwayFX: Sway, but with eye candy! "
 HOMEPAGE="https://github.com/WillPower3309/swayfx"
 
 EGIT_REPO_URI="https://github.com/WillPower3309/${PN^}.git"
-KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+man +swaybar +swaynag tray wallpapers X"
+IUSE="+man +swaybar +swaynag tray wallpapers"
 REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
@@ -23,7 +22,7 @@ DEPEND="
 	sys-auth/seatd:=
 	dev-libs/libpcre2
 	>=dev-libs/wayland-1.21.0
-	gui-libs/scenefx
+	>=gui-libs/scenefx-0.2.1
 	x11-libs/cairo
 	>=x11-libs/libxkbcommon-1.5.0
 	media-libs/libglvnd
@@ -36,13 +35,10 @@ DEPEND="
 		sys-libs/basu
 	) )
 	wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] )
-	X? ( x11-libs/libxcb:0=
-		x11-libs/xcb-util-wm
-	)
 "
 DEPEND+="
-	>=gui-libs/wlroots-0.17:=[X?]
-	<gui-libs/wlroots-0.18:=[X?]
+	>=gui-libs/wlroots-0.18.2
+	<gui-libs/wlroots-0.19.0
 "
 RDEPEND="
 	x11-misc/xkeyboard-config
@@ -67,7 +63,6 @@ src_configure() {
 	local emesonargs=(
 		$(meson_feature man man-pages)
 		$(meson_feature tray)
-		$(meson_feature X xwayland)
 		$(meson_feature swaybar gdk-pixbuf)
 		$(meson_use swaynag)
 		$(meson_use swaybar)
